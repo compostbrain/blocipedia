@@ -15,4 +15,8 @@ class User < ApplicationRecord
   #def welcome_email
   #  UserMailer.welcome_message(self).deliver
   #end
+  protected
+def confirmation_required?
+  false
+end
 end
