@@ -48,6 +48,7 @@ group :development, :test do
   gem 'faker'
   gem 'factory_girl_rails'
   gem 'pry-rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
