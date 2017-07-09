@@ -1,0 +1,4 @@
+example_id                                    | status  | run_time |
+--------------------------------------------- | ------- | -------- |
+./spec/features/creating_wikis_spec.rb[1:1]   | unknown |          |
+./spec/views/wikis/show.html.erb_spec.rb[1:1] | unknown |          |
