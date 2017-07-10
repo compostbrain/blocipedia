@@ -1,7 +1,10 @@
-class WelcomeController < ApplicationController
+class UsersController < ApplicationController
+  before_action :authenticate_user!
+  after_action :verify_authorized
+
   def index
     @users = User.all
-
+    authorize User
   end
 
   def show
@@ -21,7 +24,7 @@ class WelcomeController < ApplicationController
 
   def destroy
     user = User.find(params[:id])
-    authorize @user
+    authorize user
     user.destroy
     redirect_to users_path, :notice => "User deleted."
   end
