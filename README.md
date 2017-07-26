@@ -6,3 +6,5 @@
 
 - Incorporate Pundit gem
 - Users roles: standard, vip, and admin
+
+- Using Faker gem to seed data

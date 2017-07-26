@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>Blocipedia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,11 +13,21 @@
   <body>
     <div class="container">
       <ul class="nav nav-tabs">
-        <li><%= link_to "Blocipedia", root_path %></li>
-        <li><%= link_to "Wikis", wikis_path %></li>
-        <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "FAQ", faq_path %></li>
-        <li><%= link_to "Contact", contact_path %></li>
+        <li>
+          <%= link_to "Blocipedia", root_path %>
+        </li>
+        <li>
+          <%= link_to "Wikis", wikis_path %>
+        </li>
+        <li>
+          <%= link_to "About", about_path %>
+        </li>
+        <li>
+          <%= link_to "FAQ", faq_path %>
+        </li>
+        <li>
+          <%= link_to "Contact", contact_path %>
+        </li>
 
         <div class="pull-right user-info">
           <% if user_signed_in? %>
@@ -48,9 +59,9 @@
       </div>
       <% end %>
 
-      
       <%= yield %>
 
     </div>
   </body>
+
 </html>
