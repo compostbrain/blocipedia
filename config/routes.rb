@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users
   resources :charges, only: [:new, :create]
 
+  post 'downgrade' => 'charges#downgrade'
 
   get 'about' => 'welcome#about'
 

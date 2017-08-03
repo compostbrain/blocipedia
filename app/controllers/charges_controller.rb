@@ -1,6 +1,7 @@
 
 class ChargesController < ApplicationController
   include ChargesHelper
+  after_action :upgrade_account, only: :create
   def new
     @stripe_btn_data = {
       key: "#{Rails.configuration.stripe[:publishable_key]}",
@@ -33,5 +34,17 @@ class ChargesController < ApplicationController
   rescue Stripe::CardError => e
     flash[:alert] = e.message
     redirect_to new_charge_path
+  end
+
+  def downgrade
+    current_user.update_attribute(:role, 'free')
+    flash[:notice] = "You have been downgraded, #{current_user.email}"
+    redirect_to root_path
+  end
+
+  private
+
+  def upgrade_account
+    current_user.update_attribute(:role, 'vip')
   end
 end
