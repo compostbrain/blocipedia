@@ -17,9 +17,7 @@ require 'random_data'
 end
 wikis = Wiki.all
 
-10.times do
 
-end
 
 
 

@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  enum role: [:user, :vip, :admin]
+  enum role: [:free, :vip, :admin]
   after_initialize :set_default_role, if: :new_record?
   has_many :wikis, dependent: :destroy
   # Include default devise modules. Others available are:
@@ -8,7 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   def set_default_role
-    self.role ||= :user
+    self.role ||= :free
   end
   # Override devise confirm! message
   # def confirm!

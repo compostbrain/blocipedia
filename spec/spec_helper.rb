@@ -15,6 +15,7 @@
 require 'rails/all'
 require 'pundit/rspec'
 require 'pundit/matchers'
+require 'database_cleaner'
 require File.expand_path("../../config/environment", __FILE__)
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
@@ -30,6 +31,9 @@ RSpec.configure do |config|
     # ...rather than:
     #     # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+    config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
   end
 
   # rspec-mocks config goes here. You can use an alternate test double
@@ -69,6 +73,7 @@ RSpec.configure do |config|
   #   - http://www.teaisaweso.me/blog/2013/05/27/rspecs-new-message-expectation-syntax/
   #   - http://rspec.info/blog/2014/05/notable-changes-in-rspec-3/#zero-monkey-patching-mode
   config.disable_monkey_patching!
+  
 
   # Many RSpec users commonly either run the entire suite or an individual
   # file, and it's useful to allow more verbose output when running an

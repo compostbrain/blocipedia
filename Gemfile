@@ -35,9 +35,11 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 gem 'figaro'
 gem 'devise'
 gem 'pundit', '~> 1.1'
+gem 'stripe'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
