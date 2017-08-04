@@ -38,6 +38,12 @@ class ChargesController < ApplicationController
 
   def downgrade
     current_user.update_attribute(:role, 'free')
+    wikis = Wiki.all
+    wikis.each do |wiki|
+      if wiki.user == current_user
+        wiki.update_attribute(:private, false)
+      end
+    end
     flash[:notice] = "You have been downgraded, #{current_user.email}"
     redirect_to root_path
   end

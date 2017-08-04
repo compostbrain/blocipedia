@@ -12,7 +12,15 @@ require 'random_data'
 50.times do
   Wiki.create!(
     title: Faker::Book.title,
-    body: Faker::Lorem.paragraphs(3, true)
+    body: Faker::Lorem.paragraphs(3, true),
+    private: true
+  )
+end
+50.times do
+  Wiki.create!(
+    title: Faker::Book.title,
+    body: Faker::Lorem.paragraphs(3, true),
+    private: false
   )
 end
 wikis = Wiki.all
