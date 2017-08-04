@@ -40,6 +40,7 @@ gem 'figaro'
 gem 'devise'
 gem 'pundit', '~> 1.1'
 gem 'stripe'
+gem 'redcarpet'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -48,7 +49,7 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rspec-rails'
   gem 'shoulda'
-  gem 'faker'
+  gem 'faker', '~> 1.8.4'
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'rails-controller-testing'

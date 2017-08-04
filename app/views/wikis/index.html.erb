@@ -11,7 +11,7 @@
           <%= link_to wiki.title, wiki %>
         </h4>
         <small>
-          <%= wiki.body %>
+          <%= markdown(wiki.body) %>
         </small>
         <%= link_to 'Show', wiki %>
         <%= link_to 'Edit', edit_wiki_path(wiki) %>
