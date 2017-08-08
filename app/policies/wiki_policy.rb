@@ -9,11 +9,27 @@ class WikiPolicy < ApplicationPolicy
     end
 
     def resolve
-      if user.admin? || user.vip?
-        scope.all
-      else
-        scope.where(private: false)
+      wikis = []
+      if user.admin?
+        scope.all # if admin user show all the wikis
+      elsif user.role == 'vip'
+
+        all_wikis = scope.all
+        all_wikis.each do |wiki|
+          if wiki.private? == false || wiki.user == user || wiki.collaborators.include?(user) # show vip public
+            wikis << wiki
+          end
+        end
+      else # standard user
+        all_wikis = scope.all
+        wikis = []
+        all_wikis.each do |wiki|
+          if wiki.private? == false || wiki.collaborators.include?(user)
+            wikis << wiki
+          end
+        end
       end
+      wikis
     end
   end
 

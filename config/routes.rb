@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :wikis
   resources :users
   resources :charges, only: [:new, :create]
+  resources :collaborators, only: [:create, :destroy]
 
   post 'downgrade' => 'charges#downgrade'
 

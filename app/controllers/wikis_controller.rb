@@ -6,7 +6,7 @@ class WikisController < ApplicationController
   def show
     @wiki = Wiki.find(params[:id])
 
-    authorize @wiki
+    # authorize @wiki
   end
 
   def new
@@ -15,7 +15,7 @@ class WikisController < ApplicationController
 
   def create
     @wiki = Wiki.new(wiki_params)
-    @wiki.user= current_user
+    @wiki.user = current_user
 
     if @wiki.save
       flash[:notice] = 'Wiki was saved.'
@@ -58,7 +58,7 @@ class WikisController < ApplicationController
   private
 
   def wiki_params
-    params.require(:wiki).permit(:title, :body, :private, :user_id)
+    params.require(:wiki).permit(:title, :body, :private, :user_id, :collaborator_id)
   end
 
 
