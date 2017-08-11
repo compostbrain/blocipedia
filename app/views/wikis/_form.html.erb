@@ -20,14 +20,7 @@
 <% if current_user.admin? || current_user.vip? %>
 <div class="form-group">
     <strong>Add Collaborators:</strong>
-    <% collaborator_ids = @wiki.collaborator_ids %>
-
-    <% User.all.each do |user| %>
-      <div class="user">
-        <%= check_box_tag "wiki[collaborator_ids][]", user.id, collaborator_ids.include?(user.id) %>
-        <%= user.email %>
-      </div>
-    <% end %>
+    <%= f.collection_check_boxes :collaborators, User.all - [current_user], :id, :email, include_hidden: false %>
   </div>
 <div class="form-group">
   <div></div>

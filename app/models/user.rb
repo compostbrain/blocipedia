@@ -3,7 +3,7 @@ class User < ApplicationRecord
   after_initialize :set_default_role, if: :new_record?
   has_many :wikis, dependent: :destroy
   has_many :wiki_collaborators
-  has_many :wikis, through: :wiki_collaborators, source: :wiki
+  has_many :collaborator_wikis, through: :wiki_collaborators, source: :wiki
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
