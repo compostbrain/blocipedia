@@ -33,8 +33,11 @@ class WikisController < ApplicationController
   def update
     @wiki = Wiki.find(params[:id])
     @wiki.assign_attributes(wiki_params)
-    params[:wiki][:collaborators].each do |user_id|
-      @wiki.collaborators << User.find(user_id)
+    @wiki.collaborators = []
+    collaborators = params[:collaborators]
+    collaborators.present? && collaborators.each do |user_id|
+      WikiCollaborator.create!(user_id: user_id, wiki_id: @wiki.id)
+      #@wiki.collaborators << User.find(user_id)
     end
     authorize @wiki
 

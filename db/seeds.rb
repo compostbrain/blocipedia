@@ -25,9 +25,16 @@ end
 end
 wikis = Wiki.all
 
-
+10.times do
+  User.create!(
+  email: Faker::Internet.email,
+  password: "asdfasdfasdf",
+  password_confirmation: "asdfasdfasdf"
+  )
+end
 
 
 
 puts 'Seed finished'
 puts "#{Wiki.count} wikis created"
+puts "#{User.count} users created"
